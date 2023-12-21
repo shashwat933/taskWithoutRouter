@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
-
+import StudentDetail from './StudentDetail';
+import { useState } from 'react';
 function App() {
+  const [show, setShow] = useState(false);
+  const userName = "myUserName";
+  const telephone = 123456789;
+  const buttonHandler = () => {
+    
+    setShow(!show);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+      {show && <StudentDetail name={userName} tele={telephone} /> }
+      <button onClick={buttonHandler}>Click me</button>
     </div>
   );
 }
